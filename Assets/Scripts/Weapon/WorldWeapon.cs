@@ -9,6 +9,12 @@ public class WorldWeapon : MonoBehaviour
     private void Awake()
     {
         baseWeapon = GetComponentInParent<BaseWeapon>();
+        ApllyIcon();
+    }
+
+    void ApllyIcon()
+    {
+        GetComponent<SpriteRenderer>().sprite = baseWeapon.icon;
     }
 
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RamboWeaponSlots : MonoBehaviour
 {
-    [SerializeField] int unlockedSlotCount = 1; // 最初は1スロだけ使える
+    [SerializeField] int unlockedSlotCount = 2; // 最初は1スロだけ使える
 
     public BaseWeapon[] slots = new BaseWeapon[5];
     int currentSlotIndex = 0;
@@ -17,6 +17,10 @@ public class RamboWeaponSlots : MonoBehaviour
         input = GetComponentInParent<RamboInput>();
         state = GetComponentInParent<RamboState>();
         worldWeaponMask = 1 << LayerMask.NameToLayer("WorldWeapon");
+    }
+    void Start()
+    {
+        RefreshSlotUI(); // 初期UI
     }
 
     void Update()
@@ -49,6 +53,8 @@ public class RamboWeaponSlots : MonoBehaviour
 
         // 見た目の切り替えとかやるならここ
         OnSwitched(index);
+
+        RefreshSlotUI(); // スロット変更後のUI更新
     }
 
     protected virtual void OnSwitched(int index)
@@ -67,6 +73,8 @@ public class RamboWeaponSlots : MonoBehaviour
         currentWeapon.worldWeapon.gameObject.SetActive(true);
 
         slots[currentSlotIndex] = null;
+
+        RefreshSlotUI(); // ドロップ後のUI更新
     }
 
     void TryPickWeapon()
@@ -79,11 +87,14 @@ public class RamboWeaponSlots : MonoBehaviour
             DropCurrentWeapon();
 
         // Transformの親をRamboWeaponSlotsに
+        worldWeapon.baseWeapon.transform.position = transform.position;
         worldWeapon.baseWeapon.transform.SetParent(transform);
         worldWeapon.gameObject.SetActive(false);
 
         // スロットに登録
         slots[currentSlotIndex] = worldWeapon.baseWeapon;
+
+        RefreshSlotUI(); // 取得後のUI更新
     }
 
 
@@ -114,6 +125,19 @@ public class RamboWeaponSlots : MonoBehaviour
     {
         if (unlockedSlotCount < slots.Length)
             unlockedSlotCount++;
+
+        RefreshSlotUI(); // アンロック後のUI更新
     }
 
+    void RefreshSlotUI()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            var weapon = slots[i];
+            bool isUnlocked = (i < unlockedSlotCount);
+            UI_SlotsManager.Instance.UpdateSlotUI(i, weapon, isUnlocked);
+        }
+
+        UI_SlotsManager.Instance.SetSelectedSlot(currentSlotIndex);
+    }
 }
