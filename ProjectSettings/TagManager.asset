@@ -8,13 +8,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - obstacles
+  - WorldWeapon
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Rambo
+  - Poacher
+  - Animal
+  - Obstacles
   - 
   - 
   - 

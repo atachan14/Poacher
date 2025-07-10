@@ -4,24 +4,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class RamboMove : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    [SerializeField] float maxSpeed = 10f;
-    [SerializeField] float additiveAccel = 0.2f; // 絶対に加速する下限値
-    [SerializeField] float multiplierAccel = 0.05f; // 乗算でブースト感
-
-    [Header("Damping Settings")]
-    [SerializeField] float idleDamping = 2f;
-    [SerializeField] float normalDamping = 0f;
-    [SerializeField] float reverseDamping = 3f;
-
-    [Header("Debug")]
-    [SerializeField] float currentSpeed;  // Inspectorに速度表示（ReadOnly属性は後述）
-
+    RamboParams rParams;
     Rigidbody2D rb;
     Vector2 input;
 
-    private void Awake()
+    private void Start()
     {
+        rParams = GetComponent<RamboParams>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -37,23 +26,23 @@ public class RamboMove : MonoBehaviour
     void ShowCurrentSpeed()
     {
         float speed = rb.linearVelocity.magnitude;
-        currentSpeed = speed;
+        rParams.currentSpeed = speed;
     }
 
     void ApplyDampingControl()
     {
         if (input.magnitude < 0.1f)
         {
-            rb.linearDamping = idleDamping;
+            rb.linearDamping = rParams.idleDamping;
         }
         else if (rb.linearVelocity.magnitude > 0.1f)
         {
             float dot = Vector2.Dot(rb.linearVelocity.normalized, input);
-            rb.linearDamping = (dot < 0f) ? reverseDamping : normalDamping;
+            rb.linearDamping = (dot < 0f) ? rParams.reverseDamping : rParams.normalDamping;
         }
         else
         {
-            rb.linearDamping = normalDamping;
+            rb.linearDamping = rParams.normalDamping;
         }
     }
 
@@ -69,9 +58,9 @@ public class RamboMove : MonoBehaviour
             float dotX = Mathf.Sign(velX) == dirX ? 1f : -1f;
 
             if (dotX > 0f || Mathf.Abs(velX) < 0.1f)
-                vel.x = velX * (1 + multiplierAccel) + additiveAccel * dirX;
+                vel.x = velX * (1 + rParams.multiplierAccel) + rParams.additiveAccel * dirX;
             else
-                vel.x *= (1 - multiplierAccel);
+                vel.x *= (1 - rParams.multiplierAccel);
         }
 
         if (Mathf.Abs(input.y) > 0.1f)
@@ -81,19 +70,19 @@ public class RamboMove : MonoBehaviour
             float dotY = Mathf.Sign(velY) == dirY ? 1f : -1f;
 
             if (dotY > 0f || Mathf.Abs(velY) < 0.1f)
-                vel.y = velY * (1 + multiplierAccel) + additiveAccel * dirY;
+                vel.y = velY * (1 + rParams.multiplierAccel) + rParams.additiveAccel * dirY;
             else
-                vel.y *= (1 - multiplierAccel);
+                vel.y *= (1 - rParams.multiplierAccel);
         }
 
-        rb.linearVelocity = Vector2.ClampMagnitude(vel, maxSpeed);
+        rb.linearVelocity = Vector2.ClampMagnitude(vel, rParams.maxSpeed);
     }
 
     void ApplyMaxSpeedControl()
     {
-        if (rb.linearVelocity.magnitude > maxSpeed)
+        if (rb.linearVelocity.magnitude > rParams.maxSpeed)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+            rb.linearVelocity = rb.linearVelocity.normalized * rParams.maxSpeed;
         }
     }
 }
