@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class MachineGun : BaseWeapon
 {
@@ -6,10 +7,12 @@ public class MachineGun : BaseWeapon
 
     float lastFireTime;
 
-    public override void Fire(Vector2 dir)
+    public override void Fire(Vector2 pos)
     {
         if (Time.time - lastFireTime < data.fireRate) return;
         lastFireTime = Time.time;
+
+        Vector2 dir = (pos - (Vector2)transform.position).normalized;
 
         Vector2 firePos = (Vector2)transform.position + dir.normalized * 0.5f;
 

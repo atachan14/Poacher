@@ -28,6 +28,9 @@ public class BaseDamageable : MonoBehaviour
         int finalDMG = CalcDamage(rawDMG,penFlat,penPer);
         param.CurrentHP -= finalDMG;
 
+        ShowDamageEffect();
+        ShowAnotherEffect();
+
         if (param.CurrentHP <= 0)
         {
             OnDead();
@@ -57,6 +60,17 @@ public class BaseDamageable : MonoBehaviour
 
         return Mathf.RoundToInt(finalDamage);
     }
+
+    protected void ShowDamageEffect()
+    {
+        //‚ ‚Æ‚Å
+    }
+
+    protected virtual void ShowAnotherEffect()
+    {
+        // •K—v‚È‚çoverride
+    }
+
     protected virtual void OnDead()
     {
         // Ž€–S‰‰o or Á–Å

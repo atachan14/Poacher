@@ -43,7 +43,7 @@ public class RamboWeaponSlots : MonoBehaviour
 
     public void UseCurrentWeapon()
     {
-        slots[currentSlotIndex]?.Fire(state.AimDirection);
+        slots[currentSlotIndex]?.Fire(input.AimPos);
     }
 
     public void SwitchToSlot(int index)
