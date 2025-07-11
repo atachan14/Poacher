@@ -10,13 +10,15 @@ public class PoacherMoveAndFire : MonoBehaviour
 
     Vector3 objectivePos = Vector3.zero;
     LayerMask obstacleLayerMask;
+    LayerMask animalLayerMask;
 
     private void Awake()
     {
         uParams = GetComponent<UnitParams>();
         weapon = GetComponentInChildren<BaseWeapon>();
         attackRange = weapon.data.range;
-        obstacleLayerMask = LayerMask.GetMask("Obstacle","Animal","Zero");
+        obstacleLayerMask = LayerMask.GetMask("Obstacle");
+        animalLayerMask = LayerMask.GetMask("Animal");
     }
 
     void Start()
@@ -26,13 +28,13 @@ public class PoacherMoveAndFire : MonoBehaviour
 
     void Update()
     {
-        UpdateObjectivePos(); 
+        UpdateObjectivePos();
 
-        Vector3 approachPos = FindApproachPos(objectivePos);
+        var (approachPos, canAttackDir) = FindApproachPos(objectivePos);
 
         float dist = Vector3.Distance(transform.position, approachPos);
 
-        if (dist <= attackRange)
+        if (canAttackDir)
         {
             weapon.Fire(approachPos);
             Debug.Log(dist);
@@ -46,7 +48,7 @@ public class PoacherMoveAndFire : MonoBehaviour
 
     void UpdateObjectivePos()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, searchRadius, LayerMask.GetMask("Animal"));
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, searchRadius, animalLayerMask);
 
         float minDist = float.MaxValue;
         Vector3 closest = objectivePos; // 今のまま
@@ -66,37 +68,51 @@ public class PoacherMoveAndFire : MonoBehaviour
 
 
 
-    Vector3 FindApproachPos(Vector3 objectivePos)
+    (Vector3 approachPos, bool canAttackDirectly) FindApproachPos(Vector3 objectivePos)
     {
+        // 直線でanimalを撃てるかチェック
+        RaycastHit2D animalHit = Physics2D.Raycast(transform.position, (objectivePos - transform.position).normalized, attackRange,animalLayerMask);
+        if (animalHit.collider != null)
+        {
+            return (objectivePos, true);
+        }
+
         // ✅ まず直線で行けるかチェック（障害物がないなら直行）
         RaycastHit2D directHit = Physics2D.Raycast(transform.position, (objectivePos - transform.position).normalized, Vector2.Distance(transform.position, objectivePos), obstacleLayerMask);
         if (directHit.collider == null)
         {
-            return objectivePos;
+            return (objectivePos,false);
         }
 
         // ❌ 直行できない → Raycastサークルで回避ルートを探す
         int rayCount = 36;
         float minDist = float.MaxValue;
         Vector3 bestPoint = transform.position;
+        bool finalCanAttack = false;
+        
 
         for (int i = 0; i < rayCount; i++)
         {
             float angle = i * 360f / rayCount;
             Vector2 dir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, searchRadius, obstacleLayerMask);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, searchRadius, animalLayerMask);
+
+            
 
             Vector2 point;
+            bool canAttack;
             if (hit.collider != null)
             {
                 // 壁に当たった → 手前に補正
                 point = hit.point - dir * 0.1f;
+                canAttack = true;
             }
             else
             {
                 // 壁なし → 最大距離までOK
                 point = (Vector2)transform.position + dir * searchRadius;
+                canAttack = false;
             }
 
             float dist = Vector2.Distance(point, objectivePos);
@@ -104,9 +120,10 @@ public class PoacherMoveAndFire : MonoBehaviour
             {
                 minDist = dist;
                 bestPoint = point;
+                finalCanAttack = canAttack;
             }
         }
-        return bestPoint;
+        return (bestPoint, finalCanAttack);
     }
 
 
