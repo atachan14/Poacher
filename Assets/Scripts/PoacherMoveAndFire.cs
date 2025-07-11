@@ -8,7 +8,7 @@ public class PoacherMoveAndFire : MonoBehaviour
     float attackRange;
     public float searchRadius = 11f; // お好みで
 
-    Vector3 objectivePos = Vector3.zero;
+    Vector2 objectivePos = Vector2.zero;
     LayerMask obstacleLayerMask;
     LayerMask animalLayerMask;
 
@@ -30,32 +30,41 @@ public class PoacherMoveAndFire : MonoBehaviour
     {
         UpdateObjectivePos();
 
-        var (approachPos, canAttackDir) = FindApproachPos(objectivePos);
-
-        float dist = Vector3.Distance(transform.position, approachPos);
-
-        if (canAttackDir)
+        var (canFire, fireTarget) = CheckCanFire();
+        if (canFire)
         {
-            weapon.Fire(approachPos);
-            Debug.Log(dist);
+            weapon.Fire(fireTarget);
+            return;
         }
-        else
+
+        var (canWalkStraight, walkTarget) = CheckCanWalkStraight(objectivePos);
+        if (canWalkStraight)
+        {
+            MoveTowards(walkTarget);
+            return;
+        }
+
+        var (canPath, approachPos) = FindApproachPos(objectivePos);
+        if (canPath)
         {
             MoveTowards(approachPos);
+            return;
         }
 
+        TryBreakWall(); // 後で定義
     }
+
 
     void UpdateObjectivePos()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, searchRadius, animalLayerMask);
 
         float minDist = float.MaxValue;
-        Vector3 closest = objectivePos; // 今のまま
+        Vector2 closest = objectivePos; // ← Vector2にする！
 
         foreach (var hit in hits)
         {
-            float dist = Vector3.Distance(transform.position, hit.transform.position);
+            float dist = Vector2.Distance((Vector2)transform.position, hit.transform.position);
             if (dist < minDist)
             {
                 minDist = dist;
@@ -66,76 +75,89 @@ public class PoacherMoveAndFire : MonoBehaviour
         objectivePos = closest;
     }
 
-
-
-    (Vector3 approachPos, bool canAttackDirectly) FindApproachPos(Vector3 objectivePos)
+    (bool canFire, Vector3 target) CheckCanFire()
     {
-        // 直線でanimalを撃てるかチェック
-        RaycastHit2D animalHit = Physics2D.Raycast(transform.position, (objectivePos - transform.position).normalized, attackRange,animalLayerMask);
-        if (animalHit.collider != null)
+        Vector2 myPos = transform.position; // ✅ これは Vector2 にキャストでもOK
+        Vector2 dir = (objectivePos - myPos).normalized;
+
+        RaycastHit2D hit = Physics2D.Raycast(myPos, dir, attackRange, animalLayerMask);
+        if (hit.collider != null)
         {
-            return (objectivePos, true);
+            return (true, hit.point);
         }
 
-        // ✅ まず直線で行けるかチェック（障害物がないなら直行）
-        RaycastHit2D directHit = Physics2D.Raycast(transform.position, (objectivePos - transform.position).normalized, Vector2.Distance(transform.position, objectivePos), obstacleLayerMask);
-        if (directHit.collider == null)
-        {
-            return (objectivePos,false);
-        }
+        return (false, Vector3.zero);
+    }
 
-        // ❌ 直行できない → Raycastサークルで回避ルートを探す
+
+    (bool canWalk, Vector2 target) CheckCanWalkStraight(Vector2 target)
+    {
+        Vector2 myPos = transform.position;
+        Vector2 dir = (target - myPos).normalized;
+        float dist = Vector2.Distance(myPos, target);
+
+        RaycastHit2D hit = Physics2D.Raycast(myPos, dir, dist, obstacleLayerMask);
+        return (hit.collider == null, target);
+    }
+
+
+
+    (bool canApproach, Vector2 approachPos) FindApproachPos(Vector2 target)
+    {
+        Vector2 myPos = transform.position;
         int rayCount = 36;
         float minDist = float.MaxValue;
-        Vector3 bestPoint = transform.position;
-        bool finalCanAttack = false;
-        
+        Vector2 bestPoint = myPos;
+        bool found = false;
 
         for (int i = 0; i < rayCount; i++)
         {
             float angle = i * 360f / rayCount;
             Vector2 dir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, searchRadius, animalLayerMask);
+            RaycastHit2D hit = Physics2D.Raycast(myPos, dir, searchRadius, obstacleLayerMask);
 
-            
+            Vector2 point = (hit.collider != null)
+                ? hit.point - dir * 0.1f
+                : myPos + dir * searchRadius;
 
-            Vector2 point;
-            bool canAttack;
-            if (hit.collider != null)
-            {
-                // 壁に当たった → 手前に補正
-                point = hit.point - dir * 0.1f;
-                canAttack = true;
-            }
-            else
-            {
-                // 壁なし → 最大距離までOK
-                point = (Vector2)transform.position + dir * searchRadius;
-                canAttack = false;
-            }
-
-            float dist = Vector2.Distance(point, objectivePos);
+            float dist = Vector2.Distance(point, target);
             if (dist < minDist)
             {
                 minDist = dist;
                 bestPoint = point;
-                finalCanAttack = canAttack;
+                found = true;
             }
         }
-        return (bestPoint, finalCanAttack);
+
+        return (found, bestPoint);
     }
 
 
-
-    void MoveTowards(Vector3 pos)
+    void TryBreakWall()
     {
-        Vector3 current = transform.position;
-        pos.z = current.z; // Z固定してXY移動
+        // 最短で壁に向かって撃つ（後で専用壁破壊ロジック入れても良い）
+        Vector2 myPos = transform.position;
+        Vector2 dir = (objectivePos - myPos).normalized;
 
-        Vector3 dir = (pos - current).normalized;
-        transform.position += dir * uParams.MoveSpeed * Time.deltaTime;
+        RaycastHit2D hit = Physics2D.Raycast(myPos, dir, attackRange, obstacleLayerMask);
+        if (hit.collider != null)
+        {
+            weapon.Fire(hit.point); // 壁をぶち壊す用のFire（実弾なら当たる）
+        }
     }
+
+
+
+    void MoveTowards(Vector2 pos)
+    {
+        Vector2 current = transform.position;
+        Vector2 dir = (pos - current).normalized;
+        Vector2 newPos = current + dir * uParams.MoveSpeed * Time.deltaTime;
+
+        transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
+    }
+
 
 
 
