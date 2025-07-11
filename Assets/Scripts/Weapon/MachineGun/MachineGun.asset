@@ -12,8 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adda76af396018c428e597c31e12a2dd, type: 3}
   m_Name: MachineGun
   m_EditorClassIdentifier: 
-  weaponName: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
-  baseDamage: 0
-  attackRate: 0
+  weaponName: MachineGun
+  icon: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  fireEffect: {fileID: 889309999422424458, guid: bb0f9e44a7097054281c09e2440c400c, type: 3}
+  hitEffect: {fileID: 6149687104818602248, guid: ccdf3f03dadfc9f48bcb02d11fd4cad1, type: 3}
+  baseDamage: 10
+  penFlat: 10
+  penPer: 0
+  fireRate: 0.1
+  range: 10
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 960

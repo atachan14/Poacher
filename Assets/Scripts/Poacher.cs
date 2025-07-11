@@ -15,15 +15,20 @@ public class Poacher : MonoBehaviour
 
     void Update()
     {
+        UpdateTarget();
+
+        Vector3 dir = (targetAnimal.transform.position - transform.position).normalized;
+        transform.position += dir * speed * Time.deltaTime;
+    }
+
+    void UpdateTarget()
+    {
         searchTimer -= Time.deltaTime;
         if (searchTimer <= 0f)
         {
             searchTimer = searchInterval;
             targetAnimal = FindNearestAnimal();
         }
-
-        Vector3 dir = (targetAnimal.transform.position - transform.position).normalized;
-        transform.position += dir * speed * Time.deltaTime;
     }
 
     Animal FindNearestAnimal()

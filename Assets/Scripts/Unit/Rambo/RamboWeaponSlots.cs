@@ -37,7 +37,7 @@ public class RamboWeaponSlots : MonoBehaviour
         if (input.PickPressed)
             TryPickWeapon();
 
-        if(input.FirePressed)
+        if (input.FirePressed)
             UseCurrentWeapon();
     }
 
@@ -68,9 +68,7 @@ public class RamboWeaponSlots : MonoBehaviour
         var currentWeapon = slots[currentSlotIndex];
         if (currentWeapon == null) return;
 
-        currentWeapon.transform.position = transform.position;
-        currentWeapon.transform.SetParent(DropItemManager.Instance.transform);
-        currentWeapon.worldWeapon.gameObject.SetActive(true);
+        currentWeapon.Drop(transform.position);
 
         slots[currentSlotIndex] = null;
 
@@ -87,9 +85,7 @@ public class RamboWeaponSlots : MonoBehaviour
             DropCurrentWeapon();
 
         // Transformの親をRamboWeaponSlotsに
-        worldWeapon.baseWeapon.transform.position = transform.position;
-        worldWeapon.baseWeapon.transform.SetParent(transform);
-        worldWeapon.gameObject.SetActive(false);
+        worldWeapon.Pick(transform);
 
         // スロットに登録
         slots[currentSlotIndex] = worldWeapon.baseWeapon;

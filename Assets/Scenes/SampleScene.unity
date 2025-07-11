@@ -132,6 +132,8 @@ GameObject:
   - component: {fileID: 31371215}
   - component: {fileID: 31371217}
   - component: {fileID: 31371216}
+  - component: {fileID: 31371219}
+  - component: {fileID: 31371218}
   m_Layer: 7
   m_Name: Poacher
   m_TagString: Untagged
@@ -285,6 +287,31 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.16
+--- !u!114 &31371218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31371212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 807aad8d03936134a864f8acdf90372f, type: 2}
+--- !u!114 &31371219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31371212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &40592020
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +489,7 @@ GameObject:
   - component: {fileID: 137082493}
   - component: {fileID: 137082494}
   - component: {fileID: 137082495}
+  - component: {fileID: 137082497}
   - component: {fileID: 137082496}
   m_Layer: 9
   m_Name: Fence (6)
@@ -595,10 +623,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 137082492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &137082497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137082492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &152186123
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,6 +825,7 @@ GameObject:
   - component: {fileID: 262621758}
   - component: {fileID: 262621759}
   - component: {fileID: 262621760}
+  - component: {fileID: 262621762}
   - component: {fileID: 262621761}
   m_Layer: 9
   m_Name: Fence (1)
@@ -918,10 +959,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 262621757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &262621762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262621757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &308826679
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +986,7 @@ GameObject:
   - component: {fileID: 308826680}
   - component: {fileID: 308826681}
   - component: {fileID: 308826682}
+  - component: {fileID: 308826684}
   - component: {fileID: 308826683}
   m_Layer: 9
   m_Name: Fence
@@ -1066,10 +1120,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 308826679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &308826684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308826679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &343121186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1147,7 @@ GameObject:
   - component: {fileID: 343121187}
   - component: {fileID: 343121188}
   - component: {fileID: 343121189}
+  - component: {fileID: 343121191}
   - component: {fileID: 343121190}
   m_Layer: 9
   m_Name: Fence (2)
@@ -1214,10 +1281,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 343121186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &343121191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343121186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &394797079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,6 +1308,7 @@ GameObject:
   - component: {fileID: 394797080}
   - component: {fileID: 394797081}
   - component: {fileID: 394797082}
+  - component: {fileID: 394797084}
   - component: {fileID: 394797083}
   m_Layer: 9
   m_Name: Fence (2)
@@ -1362,10 +1442,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 394797079}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &394797084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394797079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &397204141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1544,7 @@ GameObject:
   - component: {fileID: 431211905}
   - component: {fileID: 431211906}
   - component: {fileID: 431211907}
+  - component: {fileID: 431211909}
   - component: {fileID: 431211908}
   m_Layer: 9
   m_Name: Fence (4)
@@ -1585,10 +1678,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 431211904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &431211909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431211904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &519345868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1930,7 @@ GameObject:
   - component: {fileID: 528311935}
   - component: {fileID: 528311936}
   - component: {fileID: 528311937}
+  - component: {fileID: 528311939}
   - component: {fileID: 528311938}
   m_Layer: 9
   m_Name: Fence (5)
@@ -1958,10 +2064,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 528311934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &528311939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528311934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &541309216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,6 +2142,7 @@ GameObject:
   - component: {fileID: 586571912}
   - component: {fileID: 586571913}
   - component: {fileID: 586571914}
+  - component: {fileID: 586571916}
   - component: {fileID: 586571915}
   m_Layer: 9
   m_Name: Fence (6)
@@ -2157,10 +2276,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 586571911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &586571916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586571911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2682,6 +2813,7 @@ GameObject:
   - component: {fileID: 1111881334}
   - component: {fileID: 1111881335}
   - component: {fileID: 1111881336}
+  - component: {fileID: 1111881338}
   - component: {fileID: 1111881337}
   m_Layer: 9
   m_Name: Fence (3)
@@ -2815,10 +2947,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1111881333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1111881338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111881333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &1172724068
 GameObject:
   m_ObjectHideFlags: 0
@@ -2830,6 +2974,7 @@ GameObject:
   - component: {fileID: 1172724069}
   - component: {fileID: 1172724070}
   - component: {fileID: 1172724071}
+  - component: {fileID: 1172724073}
   - component: {fileID: 1172724072}
   m_Layer: 9
   m_Name: Fence (5)
@@ -2963,10 +3108,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1172724068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1172724073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172724068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &1191582501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3198,6 +3355,7 @@ GameObject:
   - component: {fileID: 1340988659}
   - component: {fileID: 1340988660}
   - component: {fileID: 1340988661}
+  - component: {fileID: 1340988663}
   - component: {fileID: 1340988662}
   m_Layer: 9
   m_Name: Fence (5)
@@ -3331,10 +3489,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1340988658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1340988663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340988658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &1369840147
 GameObject:
   m_ObjectHideFlags: 0
@@ -3346,6 +3516,7 @@ GameObject:
   - component: {fileID: 1369840148}
   - component: {fileID: 1369840149}
   - component: {fileID: 1369840150}
+  - component: {fileID: 1369840152}
   - component: {fileID: 1369840151}
   m_Layer: 9
   m_Name: Fence (4)
@@ -3479,10 +3650,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1369840147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1369840152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369840147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &1411664763
 GameObject:
   m_ObjectHideFlags: 0
@@ -3756,6 +3939,7 @@ GameObject:
   - component: {fileID: 1525539759}
   - component: {fileID: 1525539760}
   - component: {fileID: 1525539761}
+  - component: {fileID: 1525539763}
   - component: {fileID: 1525539762}
   m_Layer: 9
   m_Name: Fence (1)
@@ -3889,10 +4073,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1525539758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1525539763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525539758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &1567994550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3904,6 +4100,7 @@ GameObject:
   - component: {fileID: 1567994551}
   - component: {fileID: 1567994552}
   - component: {fileID: 1567994553}
+  - component: {fileID: 1567994555}
   - component: {fileID: 1567994554}
   m_Layer: 9
   m_Name: Fence (6)
@@ -4037,10 +4234,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1567994550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1567994555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567994550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &1616013051
 GameObject:
   m_ObjectHideFlags: 0
@@ -4052,6 +4261,7 @@ GameObject:
   - component: {fileID: 1616013052}
   - component: {fileID: 1616013053}
   - component: {fileID: 1616013054}
+  - component: {fileID: 1616013056}
   - component: {fileID: 1616013055}
   m_Layer: 9
   m_Name: Fence (1)
@@ -4185,10 +4395,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1616013051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1616013056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616013051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &1623807812
 GameObject:
   m_ObjectHideFlags: 0
@@ -4200,6 +4422,7 @@ GameObject:
   - component: {fileID: 1623807813}
   - component: {fileID: 1623807814}
   - component: {fileID: 1623807815}
+  - component: {fileID: 1623807817}
   - component: {fileID: 1623807816}
   m_Layer: 9
   m_Name: Fence (1)
@@ -4333,10 +4556,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1623807812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1623807817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623807812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &1655011060
 GameObject:
   m_ObjectHideFlags: 0
@@ -4448,6 +4683,7 @@ GameObject:
   - component: {fileID: 1656893411}
   - component: {fileID: 1656893412}
   - component: {fileID: 1656893413}
+  - component: {fileID: 1656893415}
   - component: {fileID: 1656893414}
   m_Layer: 9
   m_Name: Fence (5)
@@ -4581,10 +4817,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1656893410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1656893415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656893410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &1684239130
 GameObject:
   m_ObjectHideFlags: 0
@@ -4596,6 +4844,7 @@ GameObject:
   - component: {fileID: 1684239131}
   - component: {fileID: 1684239132}
   - component: {fileID: 1684239133}
+  - component: {fileID: 1684239135}
   - component: {fileID: 1684239134}
   m_Layer: 9
   m_Name: Fence (3)
@@ -4729,10 +4978,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1684239130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1684239135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684239130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &1734107259
 GameObject:
   m_ObjectHideFlags: 0
@@ -4959,6 +5220,7 @@ GameObject:
   - component: {fileID: 1780813300}
   - component: {fileID: 1780813301}
   - component: {fileID: 1780813302}
+  - component: {fileID: 1780813304}
   - component: {fileID: 1780813303}
   m_Layer: 9
   m_Name: Fence (3)
@@ -5092,10 +5354,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1780813299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1780813304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780813299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &1828548291
 GameObject:
   m_ObjectHideFlags: 0
@@ -5107,6 +5381,7 @@ GameObject:
   - component: {fileID: 1828548292}
   - component: {fileID: 1828548293}
   - component: {fileID: 1828548294}
+  - component: {fileID: 1828548296}
   - component: {fileID: 1828548295}
   m_Layer: 9
   m_Name: Fence (4)
@@ -5240,10 +5515,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1828548291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1828548296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828548291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &1850581599
 GameObject:
   m_ObjectHideFlags: 0
@@ -5376,15 +5663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bf8d2cf55be254d91f4b20097f3b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldWeapon: {fileID: 0}
-  icon: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  fireEffect: {fileID: 889309999422424458, guid: bb0f9e44a7097054281c09e2440c400c, type: 3}
-  hitEffect: {fileID: 6149687104818602248, guid: ccdf3f03dadfc9f48bcb02d11fd4cad1, type: 3}
-  fireRate: 0.1
-  range: 10
-  hitMask:
-    serializedVersion: 2
-    m_Bits: 960
+  data: {fileID: 11400000, guid: d5369837a5d69bf429504e3ce40e0e0e, type: 2}
 --- !u!1 &1909040843
 GameObject:
   m_ObjectHideFlags: 0
@@ -5633,6 +5912,7 @@ GameObject:
   - component: {fileID: 1991735028}
   - component: {fileID: 1991735029}
   - component: {fileID: 1991735030}
+  - component: {fileID: 1991735032}
   - component: {fileID: 1991735031}
   m_Layer: 9
   m_Name: Fence (3)
@@ -5766,10 +6046,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1991735027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &1991735032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991735027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &2005318682
 GameObject:
   m_ObjectHideFlags: 0
@@ -5781,6 +6073,7 @@ GameObject:
   - component: {fileID: 2005318683}
   - component: {fileID: 2005318684}
   - component: {fileID: 2005318685}
+  - component: {fileID: 2005318687}
   - component: {fileID: 2005318686}
   m_Layer: 9
   m_Name: Fence (4)
@@ -5914,10 +6207,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2005318682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &2005318687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005318682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &2008294350
 GameObject:
   m_ObjectHideFlags: 0
@@ -6142,6 +6447,7 @@ GameObject:
   - component: {fileID: 2076617321}
   - component: {fileID: 2076617322}
   - component: {fileID: 2076617323}
+  - component: {fileID: 2076617325}
   - component: {fileID: 2076617324}
   m_Layer: 9
   m_Name: Fence (2)
@@ -6275,10 +6581,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2076617320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &2076617325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076617320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1 &2087307117
 GameObject:
   m_ObjectHideFlags: 0
@@ -6290,6 +6608,7 @@ GameObject:
   - component: {fileID: 2087307118}
   - component: {fileID: 2087307119}
   - component: {fileID: 2087307120}
+  - component: {fileID: 2087307122}
   - component: {fileID: 2087307121}
   m_Layer: 9
   m_Name: Fence (2)
@@ -6423,10 +6742,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2087307117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8393dc787f43549aa2fcd6555774bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b7c87148c932554695b620ad838ff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+--- !u!114 &2087307122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087307117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dcd6a00055e494e8dab4dc69ca7034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uData: {fileID: 11400000, guid: 5a432e87d79e4024f999473a470aeaa6, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

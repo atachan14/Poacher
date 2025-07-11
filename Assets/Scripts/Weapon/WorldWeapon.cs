@@ -1,4 +1,6 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
+using Transform = UnityEngine.Transform;
 
 public class WorldWeapon : MonoBehaviour
 {
@@ -14,8 +16,14 @@ public class WorldWeapon : MonoBehaviour
 
     void ApllyIcon()
     {
-        GetComponent<SpriteRenderer>().sprite = baseWeapon.icon;
+        GetComponent<SpriteRenderer>().sprite = baseWeapon.data.icon;
     }
 
+    public void Pick(Transform t)
+    {
+        baseWeapon.transform.position = t.position;
+        baseWeapon.transform.SetParent(t);
+        gameObject.SetActive(false);
+    }
 }
 

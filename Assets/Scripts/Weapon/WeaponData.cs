@@ -6,8 +6,16 @@ public class WeaponData : ScriptableObject
 {
     public string weaponName;
     public Sprite icon;
-    public GameObject prefab;
+    public GameObject fireEffect;
+    public GameObject hitEffect;
+
     public int baseDamage;
-    public float attackRate;
-    // 好きなパラメータをここに追加してってOK
+    public int penFlat;
+    public int penPer;
+
+    public float fireRate;
+    public float range;
+
+    public LayerMask hitMask;
+    
 }

@@ -36,7 +36,7 @@ public class UI_SlotsManager : MonoBehaviour
     Sprite GetWeaponIcon(BaseWeapon weapon)
     {
         // あんたの構造に応じてアイコンを取得
-        return weapon.icon;
+        return weapon.data.icon;
     }
 
     public void SetSelectedSlot(int index)
