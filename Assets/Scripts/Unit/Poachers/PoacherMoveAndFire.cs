@@ -18,6 +18,7 @@ public class PoacherMoveAndFire : MonoBehaviour
         uParams = GetComponent<UnitParams>();
         weapon = GetComponentInChildren<BaseWeapon>();
         attackRange = weapon.data.range;
+        wallFireRange = attackRange;
         unitLayerMask = LayerMask.GetMask("Unit");
     }
     void OnDrawGizmos()
@@ -58,7 +59,6 @@ public class PoacherMoveAndFire : MonoBehaviour
 
         // ここに来たら Animal以外に当たってる = 障害物がある
         // 他のApproachPos探す処理とかTryBreakWallに続く流れへ
-        Debug.Log("4-1");
 
         // ④-1: 遮られてるけど探索圏内
         var (found, approachPos, hitRambo) = FindApproachPosWithFallback(objectivePos);
@@ -78,7 +78,6 @@ public class PoacherMoveAndFire : MonoBehaviour
             return;
         }
 
-        Debug.Log("4-2");
         // ④-2: Fence撃つ or Poacherなら角度ずらす
         var blocker = hit.collider.GetComponent<UnitParams>();
         if (blocker != null && blocker.Type == UnitType.Poacher)
@@ -169,7 +168,6 @@ public class PoacherMoveAndFire : MonoBehaviour
         float distToBest = Vector2.Distance(myPos, bestPoint);
         bool found = distToBest > wallFireRange ;
 
-        Debug.Log($"Approach found={found} distToBest={distToBest}");
         debugBestPoint = bestPoint;
 
         return (found, bestPoint, hitRambo);

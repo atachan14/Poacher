@@ -22,7 +22,6 @@ public class SubmachineGun : BaseWeapon
         if (hit.collider != null)
         {
             // ƒ_ƒ[ƒWˆ—‚Æ‚©
-            Debug.Log($"Hit {hit.collider.name} at {hit.point}");
 
             ShowHitEffect(hit.point);
 
