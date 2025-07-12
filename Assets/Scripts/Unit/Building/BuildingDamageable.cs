@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ObstaclesDamageable : BaseDamageable
+public class BuildingDamageable : BaseDamageable
 {
     protected override void ShowAnotherEffect()
     {

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80e0a8e6e29f4764282fa83259336b2e, type: 3}
-  m_Name: FenceConfig
+  m_Name: AnimalConfig
   m_EditorClassIdentifier: 
-  maxHP: 2000
+  type: 2
+  maxHP: 1
   attack: 0
-  defense: 300
+  defense: 0
   penFlat: 0
   penPer: 0
   moveSpeed: 0

@@ -1,9 +1,17 @@
 using UnityEngine;
-
+public enum UnitType
+{
+    Rambo,
+    Poacher,
+    Animal,
+    Fence,
+   
+}
 public class UnitParams : MonoBehaviour
 {
-    [SerializeField] UnitConfig uData;
+    [SerializeField] UnitConfig config;
 
+    public UnitType Type { get; set; }
     public int MaxHP { get; private set; }
     public int CurrentHP { get; set; }
 
@@ -17,14 +25,15 @@ public class UnitParams : MonoBehaviour
     void Awake()
     {
         // ScriptableObjectから値をコピー
-        MaxHP = uData.maxHP;
+        Type = config.type;
+        MaxHP = config.maxHP;
         CurrentHP = MaxHP;
 
-        Attack = uData.attack;
-        Defense = uData.defense;
-        PenFlat = uData.penFlat;
-        PenPer = uData.penPer;
-        MoveSpeed = uData.moveSpeed;
+        Attack = config.attack;
+        Defense = config.defense;
+        PenFlat = config.penFlat;
+        PenPer = config.penPer;
+        MoveSpeed = config.moveSpeed;
     }
 
    

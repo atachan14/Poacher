@@ -2,15 +2,24 @@ using UnityEngine;
 
 public class AttackSource : MonoBehaviour
 {
+    [SerializeField] float lifetime = 0.1f;
     public int Damage { get; set; }
-    void Start()
+    public int PenFlat {  get; set; }
+    public int PenPer {  get; set; }
+
+    private void Awake()
     {
-        
+        WeaponData data = GetComponentInParent<BaseWeapon>().data;
+        Damage = data.baseDamage;
+        PenFlat = data.penFlat;
+        PenPer = data.penPer;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void Start()
     {
-        
+
+        Destroy(gameObject, lifetime);
     }
+
 }

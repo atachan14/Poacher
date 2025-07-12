@@ -8,20 +8,21 @@ public class BaseDamageable : MonoBehaviour
     {
         param = GetComponent<UnitParams>();
     }
- 
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    // UŒ‚”»’è‚Æ‚ÌÕ“Ë‚ÉTakeDamage
-    //    if (collision.gameObject.TryGetComponent(out AttackSource attack))
-    //    {
-    //        TakeDamage(attack.Damage);
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("attackSouce‚ª‚È‚¢");
-    //    }
-    //}
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // UŒ‚”»’è‚Æ‚ÌÕ“Ë‚ÉTakeDamage
+        if (collision.gameObject.TryGetComponent(out AttackSource attack))
+        {
+            TakeDamage(attack.Damage, attack.PenFlat, attack.PenPer);
+        }
+        else
+        {
+            Debug.Log("attackSouce‚ª‚È‚¢");
+        }
+    }
 
     public virtual void TakeDamage(int rawDMG,int penFlat,int penPer)
     {

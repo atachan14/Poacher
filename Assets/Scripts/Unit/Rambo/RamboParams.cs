@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RamboParams : MonoBehaviour
+public class RamboParams : UnitParams
 {
     [Header("Movement Settings")]
     public float maxSpeed = 10f;
