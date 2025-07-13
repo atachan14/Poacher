@@ -28,11 +28,7 @@ public class SubmachineGun : BaseWeapon
             BaseDamageable damageable = hit.collider.GetComponentInParent<BaseDamageable>();
             if (damageable != null)
             {
-                damageable.TakeDamage(
-                    rawDMG: data.baseDamage,
-                    penFlat: data.penFlat,
-                    penPer: data.penPer
-                );
+                SendDamageData(damageable);
             }
         }
 

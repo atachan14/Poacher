@@ -17,7 +17,7 @@ public class R0Sgen : PoacherGenerater
             float x = Random.Range(minX, maxX);
             Vector2 spawnPos = new Vector2(x, spawnY);
 
-            Instantiate(GameManager.DB.knifePoacher, spawnPos, Quaternion.identity, transform);
+            Instantiate(AssetsManager.Instance.poacherDB.knifePoacher, spawnPos, Quaternion.identity, transform);
 
             yield return new WaitForSeconds(spawnDelay);
 
@@ -31,8 +31,8 @@ public class R0Sgen : PoacherGenerater
         Vector2 leftPos = centerPos + Vector2.left * offsetX;
         Vector2 rightPos = centerPos + Vector2.right * offsetX;
 
-        Instantiate(GameManager.DB.machinegunPoacher, leftPos, Quaternion.identity, transform);
-        Instantiate(GameManager.DB.machinegunPoacher, rightPos, Quaternion.identity, transform);
+        Instantiate(AssetsManager.Instance.poacherDB.machinegunPoacher, leftPos, Quaternion.identity, transform);
+        Instantiate(AssetsManager.Instance.poacherDB.machinegunPoacher, rightPos, Quaternion.identity, transform);
 
         // ««« ‚±‚±‚Å‘Sˆõ‚ª€‚Ê‚Ì‚ğ‘Ò‚Â
         yield return StartCoroutine(WaitUntilAllPoachersDead());

@@ -79,6 +79,7 @@ public class PoacherMoveAndFire : MonoBehaviour
         }
 
         // ④-2: Fence撃つ or Poacherなら角度ずらす
+        Debug.Log("4 - 2");
         var blocker = hit.collider.GetComponent<UnitParams>();
         if (blocker != null && blocker.Type == UnitType.Poacher)
         {

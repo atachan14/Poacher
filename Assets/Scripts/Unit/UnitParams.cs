@@ -4,6 +4,7 @@ public enum UnitType
     Rambo,
     Poacher,
     Animal,
+    Turret,
     Fence,
    
 }

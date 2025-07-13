@@ -5,14 +5,10 @@ public class GameManager : MonoBehaviour
 {
     public int round { get; private set; } = 0;
     GameObject nowRoundGO;
-    [SerializeField] RoundData roundData;
 
-    [SerializeField] private PoacherDatabase poacherDatabase;
-    public static PoacherDatabase DB { get; private set; }
 
     void Awake()
     {
-        DB = poacherDatabase;
     }
     void Start()
     {
@@ -22,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public void StartRound()
     {
-        nowRoundGO = Instantiate(roundData.roundDict[round],transform);
+        nowRoundGO = Instantiate(AssetsManager.Instance.roundDB.roundDict[round],transform);
     }
 
     public void EndRound()

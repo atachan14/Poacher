@@ -16,7 +16,7 @@ public class BaseDamageable : MonoBehaviour
         // çUåÇîªíËÇ∆ÇÃè’ìÀéûÇ…TakeDamage
         if (collision.gameObject.TryGetComponent(out AttackSource attack))
         {
-            TakeDamage(attack.Damage, attack.PenFlat, attack.PenPer);
+            TakeDamage(attack.Damage, attack.PenFlat, attack.PenPer,attack.uParams.Type);
         }
         else
         {
@@ -24,12 +24,12 @@ public class BaseDamageable : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage(int rawDMG,int penFlat,int penPer)
+    public virtual void TakeDamage(int rawDMG,int penFlat,int penPer,UnitType uType)
     {
         int finalDMG = CalcDamage(rawDMG,penFlat,penPer);
         param.CurrentHP -= finalDMG;
 
-        ShowDamageEffect();
+        ShowDamageEffect(finalDMG,uType);
         ShowAnotherEffect();
 
         if (param.CurrentHP <= 0)
@@ -62,9 +62,11 @@ public class BaseDamageable : MonoBehaviour
         return Mathf.RoundToInt(finalDamage);
     }
 
-    protected void ShowDamageEffect()
+    protected void ShowDamageEffect(int damageAmount,UnitType uType)
     {
-        //Ç†Ç∆Ç≈
+        Vector3 spawnPos = transform.position ; // ÉLÉÉÉâÇÃÇøÇÂÇ¢è„
+        GameObject textObj = Instantiate(AssetsManager.Instance.damageText, spawnPos, Quaternion.identity);
+        textObj.GetComponent<DamageText>().Setup(damageAmount,uType);
     }
 
     protected virtual void ShowAnotherEffect()
@@ -74,7 +76,20 @@ public class BaseDamageable : MonoBehaviour
 
     protected virtual void OnDead()
     {
+        //DropWeapon
+        DropWeapon();
         // éÄñSââèo or è¡ñ≈
         Destroy(gameObject);
+    }
+
+    void DropWeapon()
+    {
+        var weapons = GetComponentsInChildren<BaseWeapon>();
+        foreach (var weapon in weapons) {
+            if (weapon != null)
+            {
+                weapon.Drop(transform.position);
+            }
+        }
     }
 }

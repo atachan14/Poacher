@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class RoundData : ScriptableObject
+public class RoundDB : ScriptableObject
 {
     public List<GameObject> roundPrefabs;
 
