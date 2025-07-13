@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PoacherMoveAndFire : MonoBehaviour
+public class PoacherAI : MonoBehaviour
 {
     UnitParams uParams;
     BaseWeapon weapon;
@@ -78,27 +78,22 @@ public class PoacherMoveAndFire : MonoBehaviour
             return;
         }
 
-        // ④-2: Fence撃つ or Poacherなら角度ずらす
+        // ④-2: Poacherなら角度ずらす,Poacher以外なら撃つ。
+
         Debug.Log("4 - 2");
         var blocker = hit.collider.GetComponent<UnitParams>();
-        if (blocker != null && blocker.Type == UnitType.Poacher)
+        if (blocker != null)
         {
-            if (TryFindNonPoacherGap(objectivePos, out Vector2 gapDir))
+            if (blocker.Type == UnitType.Poacher)
             {
-                RaycastHit2D fenceHit = RaycastIgnoreSelf(myPos, gapDir, attackRange, unitLayerMask);
-                if (fenceHit.collider != null)
-                {
-                    var fence = fenceHit.collider.GetComponent<UnitParams>();
-                    if (fence != null && fence.Type == UnitType.Fence)
-                    {
-                        weapon.Fire(fenceHit.point);
-                    }
-                }
+                // 射線がPoacherなら撃たずに待機
+                Debug.Log("4 - 2 - Poacherブロック → 待機");
             }
-        }
-        else if (blocker != null && blocker.Type == UnitType.Fence)
-        {
-            weapon.Fire(hit.point);
+            else 
+            {
+                Debug.Log("4 - 2 - 2");
+                weapon.Fire(hit.point);
+            }
         }
     }
 

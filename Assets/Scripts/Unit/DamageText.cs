@@ -4,8 +4,6 @@ using System.Collections;
 
 public class DamageText : MonoBehaviour
 {
-    [SerializeField] float moveY = 1f;
-    [SerializeField] float horizontalRange = 0.5f;
     TextMeshPro text;
     Vector3 velocity;
 
