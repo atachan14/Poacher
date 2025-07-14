@@ -1,7 +1,6 @@
-using System.ComponentModel;
+
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class RamboMove : MonoBehaviour
 {
     RamboParams rParams;

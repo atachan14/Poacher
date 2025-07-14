@@ -29,7 +29,7 @@ public class PoacherAI : MonoBehaviour
     void Update()
     {
 
-        //UpdateObjectivePos();
+        UpdateObjectivePos();
 
         Vector2 myPos = transform.position;
         Vector2 dir = (objectivePos - myPos).normalized;

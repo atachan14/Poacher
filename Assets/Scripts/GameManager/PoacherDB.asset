@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f2d53228e1cb94782a42da66873a29, type: 3}
   m_Name: PoacherDB
   m_EditorClassIdentifier: 
-  knifePoacher: {fileID: 3724457393960719016, guid: d2ac57531a8be6442b12ea1e0db0f204, type: 3}
-  submachinegunPoacher: {fileID: 2713225949257856596, guid: af3789e8ef723444484298ab86f8e9a8, type: 3}
+  knifePoacher: {fileID: 2715982311598874874, guid: d2ac57531a8be6442b12ea1e0db0f204, type: 3}
+  submachinegunPoacher: {fileID: 3812076896883534276, guid: af3789e8ef723444484298ab86f8e9a8, type: 3}
   machinegunPoacher: {fileID: 816225686572408784, guid: 0ec93fe4ea34dc34282210efde7a30f4, type: 3}

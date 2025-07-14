@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2407586954986757548}
   - component: {fileID: 1407149304988528827}
   - component: {fileID: 5467935934492107180}
+  - component: {fileID: 360944484963948062}
   m_Layer: 6
   m_Name: Kirin
   m_TagString: Untagged
@@ -152,3 +153,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 8f94aee25f6e13d4587e9492fe055e41, type: 2}
+--- !u!114 &360944484963948062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9158423423917335426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd8288f6b63ad246811791a39489e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
