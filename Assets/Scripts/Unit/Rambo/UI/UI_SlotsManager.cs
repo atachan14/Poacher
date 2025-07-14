@@ -1,9 +1,9 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class UI_SlotsManager : MonoBehaviour
 {
-    static public UI_SlotsManager Instance { get; private set; }
+    public static UI_SlotsManager Instance { get; private set; }
+
     [SerializeField] Sprite emptyIcon;
     [SerializeField] Sprite lockedIcon;
 
@@ -21,22 +21,12 @@ public class UI_SlotsManager : MonoBehaviour
 
         if (!isUnlocked)
         {
-            slots[index].SetIcon(lockedIcon);
-        }
-        else if (weapon == null)
-        {
-            slots[index].SetIcon(emptyIcon);
+            slots[index].SetLocked(lockedIcon);
         }
         else
         {
-            slots[index].SetIcon(GetWeaponIcon(weapon));
+            slots[index].SetWeapon(weapon, emptyIcon);
         }
-    }
-
-    Sprite GetWeaponIcon(BaseWeapon weapon)
-    {
-        // あんたの構造に応じてアイコンを取得
-        return weapon.data.icon;
     }
 
     public void SetSelectedSlot(int index)

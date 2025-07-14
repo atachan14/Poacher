@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MachingunWD
   m_EditorClassIdentifier: 
   weaponName: Machinegun
-  icon: {fileID: 21300000, guid: 6c05763976bcac64ebefb1f097e6ef84, type: 3}
+  icon: {fileID: 21300000, guid: ffc58b5d1d8a6ed489be30f7a1291b1e, type: 3}
   fireEffect: {fileID: 889309999422424458, guid: bb0f9e44a7097054281c09e2440c400c, type: 3}
   hitEffect: {fileID: 6149687104818602248, guid: ccdf3f03dadfc9f48bcb02d11fd4cad1, type: 3}
   baseDamage: 100
@@ -21,6 +21,7 @@ MonoBehaviour:
   penPer: 0
   fireRate: 0.15
   range: 6
+  startAmmo: 200
   hitMask:
     serializedVersion: 2
     m_Bits: 64

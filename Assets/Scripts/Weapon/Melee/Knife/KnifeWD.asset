@@ -21,6 +21,7 @@ MonoBehaviour:
   penPer: 0
   fireRate: 0.5
   range: 0.5
+  startAmmo: 100
   hitMask:
     serializedVersion: 2
     m_Bits: 64

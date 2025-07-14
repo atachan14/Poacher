@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SubmachineGunWD
   m_EditorClassIdentifier: 
   weaponName: SubmachineGun
-  icon: {fileID: 21300000, guid: 4576408ff459c3a48a69ad3c7d941581, type: 3}
+  icon: {fileID: 21300000, guid: 2d35623559ffd044682af7e09affdcc8, type: 3}
   fireEffect: {fileID: 889309999422424458, guid: bb0f9e44a7097054281c09e2440c400c, type: 3}
   hitEffect: {fileID: 6149687104818602248, guid: ccdf3f03dadfc9f48bcb02d11fd4cad1, type: 3}
   baseDamage: 80
@@ -21,6 +21,7 @@ MonoBehaviour:
   penPer: 0
   fireRate: 0.1
   range: 3
+  startAmmo: 50
   hitMask:
     serializedVersion: 2
     m_Bits: 64

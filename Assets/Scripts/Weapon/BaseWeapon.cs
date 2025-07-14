@@ -4,7 +4,7 @@ public abstract class BaseWeapon : MonoBehaviour
 {
     public WeaponData data;
     WorldWeapon worldWeapon;
-    protected float currentAmmo;
+    public float currentAmmo;
 
     private void Start()
     {
