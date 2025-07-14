@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Windows;
 
-public class SubmachineGun : BaseWeapon
+public class BaseGun : BaseWeapon
 {
 
 
@@ -9,8 +9,11 @@ public class SubmachineGun : BaseWeapon
 
     public override void Fire(Vector2 pos)
     {
+       
         if (Time.time - lastFireTime < data.fireRate) return;
         lastFireTime = Time.time;
+
+        if (!TryConsumeAmmo()) return;
 
         Vector2 dir = (pos - (Vector2)transform.position).normalized;
 
@@ -31,6 +34,7 @@ public class SubmachineGun : BaseWeapon
                 SendDamageData(damageable);
             }
         }
+        Debug.Log(currentAmmo);
 
     }
 

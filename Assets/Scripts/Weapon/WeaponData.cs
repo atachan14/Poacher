@@ -15,6 +15,7 @@ public class WeaponData : ScriptableObject
 
     public float fireRate;
     public float range;
+    public float startAmmo;
 
     public LayerMask hitMask;
     
