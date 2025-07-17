@@ -6,6 +6,7 @@ public class RamboWeaponSlots : MonoBehaviour
 
     public BaseWeapon[] slots = new BaseWeapon[5];
     int currentSlotIndex = 0;
+    BaseWeapon boreHands;
 
     int worldWeaponMask;
 
@@ -17,6 +18,7 @@ public class RamboWeaponSlots : MonoBehaviour
         input = GetComponentInParent<RamboInput>();
         state = GetComponentInParent<RamboState>();
         worldWeaponMask = 1 << LayerMask.NameToLayer("WorldWeapon");
+        boreHands = GetComponentInChildren<BaseWeapon>();
     }
     void Start()
     {
@@ -43,7 +45,7 @@ public class RamboWeaponSlots : MonoBehaviour
 
     public void UseCurrentWeapon()
     {
-        slots[currentSlotIndex]?.Fire(input.AimPos);
+        (slots[currentSlotIndex] ?? boreHands).Fire(input.AimPos);
     }
 
     public void SwitchToSlot(int index)

@@ -46,7 +46,7 @@ public class PoacherAI : MonoBehaviour
                 // Animalにヒット = 射線通ってる！撃つ or 歩く判定
                 if (dist <= attackRange)
                 {
-                    weapon.Fire(objectivePos);
+                    Fire(objectivePos);
                 }
                 else
                 {
@@ -70,7 +70,7 @@ public class PoacherAI : MonoBehaviour
                 float ramboDist = Vector2.Distance(myPos, ramboPos);
                 if (ramboDist <= attackRange)
                 {
-                    weapon.Fire(ramboPos);
+                    Fire(ramboPos);
                     return;
                 }
             }
@@ -92,8 +92,25 @@ public class PoacherAI : MonoBehaviour
             else 
             {
                 Debug.Log("4 - 2 - 2");
-                weapon.Fire(hit.point);
+                Fire(hit.point);
             }
+        }
+    }
+
+    void Fire(Vector2 pos)
+    {
+        if (weapon.currentAmmo != 0)
+        {
+            weapon.Fire(pos);
+            Debug.Log("Fire");
+        }
+        else
+        {
+            Debug.Log("Drop");
+            weapon.Drop(transform.position);
+            weapon = GetComponentInChildren<BaseWeapon>();
+            attackRange = weapon.data.range;
+            wallFireRange = attackRange;
         }
     }
 

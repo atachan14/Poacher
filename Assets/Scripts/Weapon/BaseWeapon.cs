@@ -3,17 +3,17 @@ using UnityEngine;
 public abstract class BaseWeapon : MonoBehaviour
 {
     public WeaponData data;
-    WorldWeapon worldWeapon;
+    protected WorldWeapon worldWeapon;
     public float currentAmmo;
 
-    private void Start()
+    protected virtual void Start()
     {
         worldWeapon = GetComponentInChildren<WorldWeapon>(true);
         currentAmmo = data.startAmmo;
     }
     public abstract void Fire(Vector2 dir);
 
-    public bool TryConsumeAmmo()
+    public virtual bool TryConsumeAmmo()
     {
         if (currentAmmo > 0)
         {
@@ -32,7 +32,7 @@ public abstract class BaseWeapon : MonoBehaviour
 
     }
 
-    public void Drop(Vector2 pos)
+    public virtual void Drop(Vector2 pos)
     {
         transform.position = pos;
         transform.parent = DropItemManager.Instance.transform;
