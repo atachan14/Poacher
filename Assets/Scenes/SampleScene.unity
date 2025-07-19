@@ -3518,6 +3518,7 @@ GameObject:
   - component: {fileID: 1734107267}
   - component: {fileID: 1734107268}
   - component: {fileID: 1734107269}
+  - component: {fileID: 1734107270}
   m_Layer: 6
   m_Name: Rambo
   m_TagString: Untagged
@@ -3739,6 +3740,21 @@ MonoBehaviour:
   TurnDeceleration: 5
   MaxTurnPower: 10
   TurnSharpness: 1.5
+--- !u!114 &1734107270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734107259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805cfbd054646a543bc449bc4e738f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reviveDuration: 3
+  blinkInterval: 0.2
+  blinkAlpha: 0.3
 --- !u!4 &1736503971 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2007786527570594888, guid: 863da9d816380d6498df60db5911a8b5, type: 3}
@@ -4581,7 +4597,7 @@ GameObject:
   - component: {fileID: 2074001176}
   - component: {fileID: 2074001175}
   m_Layer: 5
-  m_Name: Image
+  m_Name: UI_Status?
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,7 +4,7 @@ public class BaseDamageable : MonoBehaviour
 {
     protected UnitParams param;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         param = GetComponent<UnitParams>();
     }

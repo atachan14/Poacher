@@ -3,6 +3,7 @@
 public class RamboMove2 : MonoBehaviour
 {
     Rigidbody2D rb;
+    RamboInput input;
 
     // 実験用パラメータ
     public float MoveSpeed = 3f;
@@ -29,12 +30,13 @@ public class RamboMove2 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        input = GetComponent<RamboInput>();
     }
 
     void Update()
     {
         // 入力更新だけここで
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        moveInput = input.MoveInput;
         dashHeld = Input.GetKey(KeyCode.Space);
     }
 
