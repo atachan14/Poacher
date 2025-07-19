@@ -14,7 +14,7 @@ public class BaseDamageable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // UŒ‚”»’è‚Æ‚ÌÕ“Ë‚ÉTakeDamage
-        if (collision.gameObject.TryGetComponent(out AttackSource attack))
+        if (collision.gameObject.TryGetComponent(out OnSpotAttackSource attack))
         {
             TakeDamage(attack.Damage, attack.PenFlat, attack.PenPer,attack.uParams.Type);
         }

@@ -8,7 +8,6 @@ public class RamboInput : MonoBehaviour
 
     public bool[] WeaponSwitchPressed = new bool[5];
 
-    public bool DropPressed { get; private set; }
     public bool PickPressed { get; private set; }
     
 
@@ -20,8 +19,7 @@ public class RamboInput : MonoBehaviour
         for (int i = 0; i < WeaponSwitchPressed.Length; i++)
             WeaponSwitchPressed[i] = Input.GetKeyDown(KeyCode.Alpha1 + i);
 
-        DropPressed = Input.GetKeyDown(KeyCode.G);
-        PickPressed = Input.GetKeyDown(KeyCode.F);
+        PickPressed = Input.GetKeyDown(KeyCode.E);
         AimPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 }

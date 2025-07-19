@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AttackSource : MonoBehaviour
+public class OnSpotAttackSource : MonoBehaviour
 {
     [SerializeField] float lifetime = 0.1f;
     public int Damage { get; set; }

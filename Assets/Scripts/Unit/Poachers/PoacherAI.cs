@@ -50,7 +50,6 @@ public class PoacherAI : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Animalまで射線通ってる歩き。");
                     MoveTowards(objectivePos);
                 }
                 return;
@@ -80,18 +79,15 @@ public class PoacherAI : MonoBehaviour
 
         // ④-2: Poacherなら角度ずらす,Poacher以外なら撃つ。
 
-        Debug.Log("4 - 2");
         var blocker = hit.collider.GetComponent<UnitParams>();
         if (blocker != null)
         {
             if (blocker.Type == UnitType.Poacher)
             {
                 // 射線がPoacherなら撃たずに待機
-                Debug.Log("4 - 2 - Poacherブロック → 待機");
             }
             else 
             {
-                Debug.Log("4 - 2 - 2");
                 Fire(hit.point);
             }
         }
@@ -102,11 +98,9 @@ public class PoacherAI : MonoBehaviour
         if (weapon.currentAmmo != 0)
         {
             weapon.Fire(pos);
-            Debug.Log("Fire");
         }
         else
         {
-            Debug.Log("Drop");
             weapon.Drop(transform.position);
             weapon = GetComponentInChildren<BaseWeapon>();
             attackRange = weapon.data.range;

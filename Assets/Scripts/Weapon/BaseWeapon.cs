@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public abstract class BaseWeapon : MonoBehaviour
@@ -35,9 +36,31 @@ public abstract class BaseWeapon : MonoBehaviour
 
     public virtual void Drop(Vector2 pos)
     {
-        transform.position = pos;
         transform.parent = DropItemManager.Instance.transform;
         worldWeapon.gameObject.SetActive(true);
+        worldWeapon.MarkAsDropped();
+
+        Vector2 start = transform.position;
+        Vector2 dir = ((Vector2)pos - start).normalized;
+        Vector2 target = start + dir * 0.3f;
+
+        StartCoroutine(SlideToPosition(target, 0.1f)); // 0.1秒かけてスルッと
+    }
+
+    IEnumerator SlideToPosition(Vector2 targetPos, float duration)
+    {
+        Vector2 startPos = transform.position;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            transform.position = Vector2.Lerp(startPos, targetPos, t);
+            yield return null;
+        }
+
+        transform.position = targetPos; // 最終位置でピタッと止める
     }
 
     protected void SendDamageData(BaseDamageable damageable)

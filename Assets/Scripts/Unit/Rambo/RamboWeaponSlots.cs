@@ -1,8 +1,8 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class RamboWeaponSlots : MonoBehaviour
 {
-    [SerializeField] int unlockedSlotCount = 2; // Å‰‚Í1ƒXƒ‚¾‚¯g‚¦‚é
+    [SerializeField] int unlockedSlotCount = 2; // æœ€åˆã¯1ã‚¹ãƒ­ã ã‘ä½¿ãˆã‚‹
 
     public BaseWeapon[] slots = new BaseWeapon[5];
     int currentSlotIndex = 0;
@@ -22,7 +22,7 @@ public class RamboWeaponSlots : MonoBehaviour
     }
     void Start()
     {
-        RefreshSlotUI(); // ‰ŠúUI
+        RefreshSlotUI(); // åˆæœŸUI
     }
 
     void Update()
@@ -33,11 +33,8 @@ public class RamboWeaponSlots : MonoBehaviour
                 SwitchToSlot(i);
         }
 
-        if (input.DropPressed)
-            DropCurrentWeapon();
-
         if (input.PickPressed)
-            TryPickWeapon();
+            DropAndTryPickWeapon();
 
         if (input.FirePressed)
             UseCurrentWeapon();
@@ -50,56 +47,63 @@ public class RamboWeaponSlots : MonoBehaviour
 
     public void SwitchToSlot(int index)
     {
-        if (index >= unlockedSlotCount) return; // –¢ƒAƒ“ƒƒbƒNƒXƒƒbƒg‚Í–³‹
+        if (index >= unlockedSlotCount) return; // æœªã‚¢ãƒ³ãƒ­ãƒƒã‚¯ã‚¹ãƒ­ãƒƒãƒˆã¯ç„¡è¦–
         currentSlotIndex = index;
 
-        // Œ©‚½–Ú‚ÌØ‚è‘Ö‚¦‚Æ‚©‚â‚é‚È‚ç‚±‚±
+        // è¦‹ãŸç›®ã®åˆ‡ã‚Šæ›¿ãˆã¨ã‹ã‚„ã‚‹ãªã‚‰ã“ã“
         OnSwitched(index);
 
-        RefreshSlotUI(); // ƒXƒƒbƒg•ÏXŒã‚ÌUIXV
+        RefreshSlotUI(); // ã‚¹ãƒ­ãƒƒãƒˆå¤‰æ›´å¾Œã®UIæ›´æ–°
     }
 
     protected virtual void OnSwitched(int index)
     {
-        // override‚Å‰‰o—p‚ÉŠg’£‚Å‚«‚é‚æ‚¤‚É‚µ‚Ä‚¨‚­
+        // overrideã§æ¼”å‡ºç”¨ã«æ‹¡å¼µã§ãã‚‹ã‚ˆã†ã«ã—ã¦ãŠã
         Debug.Log($"Switched to slot {index}");
     }
 
     void DropCurrentWeapon()
     {
+        Debug.Log("DropWeapon");
         var currentWeapon = slots[currentSlotIndex];
         if (currentWeapon == null) return;
 
-        currentWeapon.Drop(transform.position);
+        Debug.Log("DropWeapon2");
+
+        currentWeapon.Drop(input.AimPos);
 
         slots[currentSlotIndex] = null;
 
-        RefreshSlotUI(); // ƒhƒƒbƒvŒã‚ÌUIXV
+        RefreshSlotUI(); // ãƒ‰ãƒ­ãƒƒãƒ—å¾Œã®UIæ›´æ–°
     }
 
-    void TryPickWeapon()
+    void DropAndTryPickWeapon()
     {
-        var worldWeapon = SearchWeaponUnderFoot();
-        if (worldWeapon == null) return;
-
-        // ƒXƒƒbƒg‚É‰½‚©“ü‚Á‚Ä‚½‚ç—‚Æ‚·
+        // ã‚¹ãƒ­ãƒƒãƒˆã«ä½•ã‹å…¥ã£ã¦ãŸã‚‰è½ã¨ã™
         if (slots[currentSlotIndex] != null)
             DropCurrentWeapon();
 
-        // Transform‚Ìe‚ğRamboWeaponSlots‚É
+        var worldWeapon = SearchWeaponUnderFoot();
+        if (worldWeapon == null) return;
+        
+        // Transformã®è¦ªã‚’RamboWeaponSlotsã«
         worldWeapon.Pick(transform);
 
-        // ƒXƒƒbƒg‚É“o˜^
+        // ã‚¹ãƒ­ãƒƒãƒˆã«ç™»éŒ²
         slots[currentSlotIndex] = worldWeapon.baseWeapon;
 
-        RefreshSlotUI(); // æ“¾Œã‚ÌUIXV
+        RefreshSlotUI(); // å–å¾—å¾Œã®UIæ›´æ–°
     }
 
 
     WorldWeapon SearchWeaponUnderFoot()
     {
         float pickupRadius = 1.0f;
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, pickupRadius, 1 << LayerMask.NameToLayer("WorldWeapon"));
+        Collider2D[] hits = Physics2D.OverlapCircleAll(
+            transform.position,
+            pickupRadius,
+            1 << LayerMask.NameToLayer("WorldWeapon")
+        );
 
         WorldWeapon nearest = null;
         float nearestDistSqr = float.MaxValue;
@@ -108,6 +112,9 @@ public class RamboWeaponSlots : MonoBehaviour
         {
             if (hit.TryGetComponent(out WorldWeapon worldWeapon))
             {
+                // â¬‡â¬‡â¬‡ ã“ã“ã§ CanBePicked ãƒã‚§ãƒƒã‚¯è¿½åŠ ï¼
+                if (!worldWeapon.CanBePicked()) continue;
+
                 float distSqr = (worldWeapon.transform.position - transform.position).sqrMagnitude;
                 if (distSqr < nearestDistSqr)
                 {
@@ -116,15 +123,17 @@ public class RamboWeaponSlots : MonoBehaviour
                 }
             }
         }
+
         return nearest;
     }
+
 
     public void UnlockNextSlot()
     {
         if (unlockedSlotCount < slots.Length)
             unlockedSlotCount++;
 
-        RefreshSlotUI(); // ƒAƒ“ƒƒbƒNŒã‚ÌUIXV
+        RefreshSlotUI(); // ã‚¢ãƒ³ãƒ­ãƒƒã‚¯å¾Œã®UIæ›´æ–°
     }
 
     void RefreshSlotUI()

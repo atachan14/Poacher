@@ -49,7 +49,7 @@ public class PoacherGenerater : MonoBehaviour
 
 
     protected virtual void Wave0() => Debug.Log($"{name} Gen0 開始！");
-    protected virtual void Wave1() => Debug.Log($"{name} Gen1 開始！");
+    protected virtual void Wave1() => Debug.Log("");
     protected virtual void Wave2() => Debug.Log($"{name} Gen2 開始！");
     protected virtual void Wave3() => Debug.Log($"{name} Gen3 開始！");
     protected virtual void Wave4() => Debug.Log($"{name} Gen4 開始！");

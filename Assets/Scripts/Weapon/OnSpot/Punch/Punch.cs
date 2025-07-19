@@ -15,6 +15,6 @@ public class Punch : OnSpotWeapon
 
     public override void Drop(Vector2 pos)
     {
-        Debug.Log("RamboPunch‚ÍDrop‚Å‚«‚Ü‚¹‚ñB");
+        
     }
 }
