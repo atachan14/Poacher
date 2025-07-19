@@ -5,6 +5,7 @@ public abstract class BaseWeapon : MonoBehaviour
     public WeaponData data;
     protected WorldWeapon worldWeapon;
     public float currentAmmo;
+    protected float lastFireTime;
 
     protected virtual void Start()
     {

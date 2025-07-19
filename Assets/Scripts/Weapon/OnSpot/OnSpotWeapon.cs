@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class MeleeAttack : BaseWeapon
+public class OnSpotWeapon : BaseWeapon
 {
     [SerializeField]GameObject attackSource;
-    
-    float lastFireTime;
+
+
 
 
     public override void Fire(Vector2 pos)
@@ -16,8 +16,12 @@ public class MeleeAttack : BaseWeapon
 
         Vector2 dir = (pos - (Vector2)transform.position).normalized;
 
-        Vector2 firePos = (Vector2)transform.position + dir.normalized * 0.5f;
+        Vector2 firePos = (Vector2)transform.position + dir * data.range;
 
-        Instantiate(attackSource, firePos, Quaternion.identity,transform);
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        Instantiate(attackSource, firePos, rotation, transform);
     }
+
 }

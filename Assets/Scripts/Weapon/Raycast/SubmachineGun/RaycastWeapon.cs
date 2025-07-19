@@ -1,11 +1,10 @@
 using UnityEngine;
 using UnityEngine.Windows;
 
-public class BaseGun : BaseWeapon
+public class RaycastWeapon : BaseWeapon
 {
 
 
-    float lastFireTime;
 
     public override void Fire(Vector2 pos)
     {
@@ -34,7 +33,6 @@ public class BaseGun : BaseWeapon
                 SendDamageData(damageable);
             }
         }
-        Debug.Log(currentAmmo);
 
     }
 
