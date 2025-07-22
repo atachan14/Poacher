@@ -8,11 +8,8 @@ public class RaycastWeapon : BaseWeapon
 
     public override void Fire(Vector2 pos)
     {
-       
-        if (Time.time - lastFireTime < data.fireRate) return;
-        lastFireTime = Time.time;
 
-        if (!TryConsumeAmmo()) return;
+        if (!RequireCheck()) return;
 
         Vector2 dir = (pos - (Vector2)transform.position).normalized;
 

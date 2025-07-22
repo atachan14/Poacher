@@ -2,7 +2,7 @@
 
 public class RamboWeaponSlots : MonoBehaviour
 {
-    [SerializeField] int unlockedSlotCount = 2; // 最初は1スロだけ使える
+    [SerializeField] int unlockedSlotCount = 2; 
 
     public BaseWeapon[] slots = new BaseWeapon[5];
     int currentSlotIndex = 0;

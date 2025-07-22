@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class RoundManager : MonoBehaviour
+public class BaseRoundManager : MonoBehaviour
 {
     public static event Action<int> OnWaveStart;
 

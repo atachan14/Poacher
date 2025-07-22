@@ -28,12 +28,12 @@ public class PoacherGenerater : MonoBehaviour
 
     void OnEnable()
     {
-        RoundManager.OnWaveStart += HandleWaveStart;
+        BaseRoundManager.OnWaveStart += HandleWaveStart;
     }
 
     void OnDisable()
     {
-        RoundManager.OnWaveStart -= HandleWaveStart;
+        BaseRoundManager.OnWaveStart -= HandleWaveStart;
     }
     protected virtual void HandleWaveStart(int waveNum)
     {

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1850140164288620047}
   - component: {fileID: 7183336801250229906}
-  - component: {fileID: 4247340666101523383}
   - component: {fileID: 7144006083631011737}
   m_Layer: 8
   m_Name: AttackSource
@@ -89,19 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4247340666101523383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2711559036118565270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad4748f11cb9c440ba90515d6be94a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 0.1
 --- !u!61 &7144006083631011737
 BoxCollider2D:
   m_ObjectHideFlags: 0

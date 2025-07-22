@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adda76af396018c428e597c31e12a2dd, type: 3}
-  m_Name: PunchWD
+  m_Name: FlamethrowerWD
   m_EditorClassIdentifier: 
-  weaponName: Punch
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  weaponName: Flamethrower
+  icon: {fileID: 21300000, guid: cc7e65fd16d39483aa18d865a68e9451, type: 3}
   fireEffect: {fileID: 0}
   hitEffect: {fileID: 0}
-  baseDamage: 50
+  baseDamage: 10
   penFlat: 0
-  penPer: 20
-  fireRate: 1
-  range: 0.5
-  startAmmo: -999
+  penPer: 0
+  fireRate: 0.05
+  range: 1.75
+  startTime: 0
+  lifetime: 0.1
+  startAmmo: 300
   hitMask:
     serializedVersion: 2
     m_Bits: 64

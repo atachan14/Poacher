@@ -8,16 +8,19 @@ public class RamboDamageable : BaseDamageable
     [SerializeField] float blinkInterval = 0.2f;
     [SerializeField] float blinkAlpha = 0.3f;
 
-    bool isInvincible = false;
     SpriteRenderer[] renderers;
     Collider2D[] colliders;
-    RamboInput input;
+    RamboMove2 ramboMove;
+    RamboWeaponSlots ramboSlots;
+    Rigidbody2D rb;
 
     protected override void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         renderers = GetComponentsInChildren<SpriteRenderer>();
         colliders = GetComponentsInChildren<Collider2D>();
-        input = GetComponent<RamboInput>();
+        ramboMove = GetComponent<RamboMove2>();
+        ramboSlots = GetComponentInChildren<RamboWeaponSlots>();
         param = GetComponent<RamboParams>();
     }
 
@@ -28,46 +31,47 @@ public class RamboDamageable : BaseDamageable
 
     IEnumerator ReviveCoroutine()
     {
-        isInvincible = true;
+        rb.linearVelocity = Vector2.zero;
+        ramboMove.enabled = false;
+        ramboSlots.enabled = false;
 
-        // ‘€ì’â~
-        if (input != null) input.enabled = false;
-
-        // ƒRƒ‰ƒCƒ_[–³Œø‰»i“G‚âUŒ‚‚Æ“–‚½‚ç‚È‚­‚È‚éj
         foreach (var col in colliders)
             col.enabled = false;
 
-        // ‰ñ•œŠJn
         float timer = 0f;
         float startHP = param.CurrentHP;
         float endHP = param.MaxHP;
+        float blinkTimer = 0f;
         bool visible = true;
 
         while (timer < reviveDuration)
         {
+            // æ¯ãƒ•ãƒ¬ãƒ¼ãƒ HPã‚’æ›´æ–°ï¼ˆæ»‘ã‚‰ã‹ï¼‰
             param.CurrentHP = (int)Mathf.Lerp(startHP, endHP, timer / reviveDuration);
 
-            // “_–Å
-            SetRenderersAlpha(visible ? blinkAlpha : 1f);
-            visible = !visible;
+            // ç‚¹æ»…å‡¦ç†ã¯blinkIntervalã”ã¨ã«
+            blinkTimer += Time.deltaTime;
+            if (blinkTimer >= blinkInterval)
+            {
+                SetRenderersAlpha(visible ? blinkAlpha : 1f);
+                visible = !visible;
+                blinkTimer = 0f;
+            }
 
-            yield return new WaitForSeconds(blinkInterval);
-            timer += blinkInterval;
+            timer += Time.deltaTime;
+            yield return null;
         }
 
-        // ÅIó‘Ô
         param.CurrentHP = (int)endHP;
         SetRenderersAlpha(1f);
 
-        // ƒRƒ‰ƒCƒ_[Ä—LŒø‰»
         foreach (var col in colliders)
             col.enabled = true;
 
-        // ‘€ìÄŠJ
-        if (input != null) input.enabled = true;
-
-        isInvincible = false;
+        ramboMove.enabled = true;
+        ramboSlots.enabled = true;
     }
+
 
     void SetRenderersAlpha(float alpha)
     {

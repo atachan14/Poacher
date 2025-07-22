@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Round0Manager : RoundManager
+public class TestRound00 : BaseRoundManager
 {
  
 }

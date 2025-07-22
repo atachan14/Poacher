@@ -10,10 +10,22 @@ public abstract class BaseWeapon : MonoBehaviour
 
     protected virtual void Start()
     {
+       
         worldWeapon = GetComponentInChildren<WorldWeapon>(true);
         currentAmmo = data.startAmmo;
     }
     public abstract void Fire(Vector2 dir);
+
+    protected bool RequireCheck()
+    {
+        if (Time.time - lastFireTime < data.fireRate) return false;
+        lastFireTime = Time.time;
+
+        if (!TryConsumeAmmo()) return false;
+
+        return true;
+    }
+
 
     public virtual bool TryConsumeAmmo()
     {

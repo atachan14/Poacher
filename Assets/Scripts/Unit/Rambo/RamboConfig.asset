@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RamboConfig
   m_EditorClassIdentifier: 
   type: 0
-  maxHP: 1000
+  maxHP: 2000
   attack: 100
   defense: 100
   penFlat: 0

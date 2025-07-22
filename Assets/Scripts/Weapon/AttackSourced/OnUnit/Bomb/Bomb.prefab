@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &46009650625396000
+--- !u!1 &8523592310227722739
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,52 +8,53 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4523373905880793909}
-  - component: {fileID: 7340839088062397159}
+  - component: {fileID: 2973841117492804532}
+  - component: {fileID: 2518607994721676619}
   m_Layer: 0
-  m_Name: Knife
+  m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4523373905880793909
+--- !u!4 &2973841117492804532
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46009650625396000}
+  m_GameObject: {fileID: 8523592310227722739}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8014574466519307125}
+  - {fileID: 3988436657431155464}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7340839088062397159
+--- !u!114 &2518607994721676619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46009650625396000}
+  m_GameObject: {fileID: 8523592310227722739}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd36705e57b8fe1449b67302af8f0d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: c80f96f63cc1eab408af7676afa3cde5, type: 2}
-  attackSource: {fileID: 2711559036118565270, guid: 4dc7861f6cb7ec249b2c400e0d244f75, type: 3}
---- !u!1001 &2442666552150551534
+  data: {fileID: 11400000, guid: 840e562d057ed3145bcd12252e689bda, type: 2}
+  currentAmmo: 0
+  attackSource: {fileID: 1520286207808778945, guid: b7b713643a7206e448abe6abf536e983, type: 3}
+--- !u!1001 &8756866055775808403
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4523373905880793909}
+    m_TransformParent: {fileID: 2973841117492804532}
     m_Modifications:
     - target: {fileID: 5683372624196270235, guid: 4bded9e4dff2e764c86e8d6023933f1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -104,8 +105,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bded9e4dff2e764c86e8d6023933f1e, type: 3}
---- !u!4 &8014574466519307125 stripped
+--- !u!4 &3988436657431155464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5683372624196270235, guid: 4bded9e4dff2e764c86e8d6023933f1e, type: 3}
-  m_PrefabInstance: {fileID: 2442666552150551534}
+  m_PrefabInstance: {fileID: 8756866055775808403}
   m_PrefabAsset: {fileID: 0}

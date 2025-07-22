@@ -38,7 +38,7 @@ public class R0Egen : PoacherGenerater
         yield return StartCoroutine(WaitUntilAllPoachersDead());
 
         // ‘SˆõÁ‚¦‚½‚çŸ‚ÌWave
-        var roundManager = GetComponentInParent<RoundManager>();
+        var roundManager = GetComponentInParent<BaseRoundManager>();
         roundManager?.WaveStart(2);
     }
     IEnumerator WaitUntilAllPoachersDead()

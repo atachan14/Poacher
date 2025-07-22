@@ -17,10 +17,12 @@ MonoBehaviour:
   fireEffect: {fileID: 889309999422424458, guid: bb0f9e44a7097054281c09e2440c400c, type: 3}
   hitEffect: {fileID: 6149687104818602248, guid: ccdf3f03dadfc9f48bcb02d11fd4cad1, type: 3}
   baseDamage: 100
-  penFlat: 10
+  penFlat: 50
   penPer: 0
   fireRate: 0.15
   range: 6
+  startTime: 0
+  lifetime: 0
   startAmmo: 200
   hitMask:
     serializedVersion: 2

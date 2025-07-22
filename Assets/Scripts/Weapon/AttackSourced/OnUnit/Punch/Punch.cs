@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Punch : OnSpotWeapon
+public class Punch : OnUnitWeapon
 {
     protected override void Start()
     {
