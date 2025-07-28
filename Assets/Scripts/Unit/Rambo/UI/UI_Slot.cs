@@ -29,8 +29,8 @@ public class UI_Slot : MonoBehaviour
         }
         else
         {
-            icon.sprite = weapon.data.icon;
-            ammoText.text = $"{weapon.currentAmmo}/{weapon.data.startAmmo}";
+            icon.sprite = weapon.wData.icon;
+            ammoText.text = $"{weapon.currentAmmo}/{weapon.wData.startAmmo}";
         }
 
         icon.enabled = (icon.sprite != null);
@@ -45,7 +45,7 @@ public class UI_Slot : MonoBehaviour
     {
         if (weapon != null)
         {
-            ammoText.text = $"{weapon.currentAmmo}/{weapon.data.startAmmo}";
+            ammoText.text = $"{weapon.currentAmmo}/{weapon.wData.startAmmo}";
         }
     }
 }

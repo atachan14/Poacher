@@ -3,22 +3,24 @@ using UnityEngine;
 
 public abstract class BaseWeapon : MonoBehaviour
 {
-    public WeaponData data;
+    public WeaponData wData;
+    public UnitParams uParams { get; private set; }
     protected WorldWeapon worldWeapon;
     public float currentAmmo;
     protected float lastFireTime;
 
     protected virtual void Start()
     {
-       
+
         worldWeapon = GetComponentInChildren<WorldWeapon>(true);
-        currentAmmo = data.startAmmo;
+        uParams = GetComponentInParent<UnitParams>();
+        currentAmmo = wData.startAmmo;
     }
     public abstract void Fire(Vector2 dir);
 
     protected bool RequireCheck()
     {
-        if (Time.time - lastFireTime < data.fireRate) return false;
+        if (Time.time - lastFireTime < wData.fireRate) return false;
         lastFireTime = Time.time;
 
         if (!TryConsumeAmmo()) return false;
@@ -34,10 +36,10 @@ public abstract class BaseWeapon : MonoBehaviour
             currentAmmo--;
             return true;
         }
-        else 
+        else
         {
             PlayNoAmmoEffect();
-            return false; 
+            return false;
         }
     }
 
@@ -59,6 +61,13 @@ public abstract class BaseWeapon : MonoBehaviour
         StartCoroutine(SlideToPosition(target, 0.1f)); // 0.1•b‚©‚¯‚ÄƒXƒ‹ƒb‚Æ
     }
 
+    public void Pick(Transform t)
+    {
+        transform.position = t.position;
+        transform.SetParent(t);
+        uParams = GetComponentInParent<UnitParams>();
+    }
+
     IEnumerator SlideToPosition(Vector2 targetPos, float duration)
     {
         Vector2 startPos = transform.position;
@@ -78,9 +87,9 @@ public abstract class BaseWeapon : MonoBehaviour
     protected void SendDamageData(BaseDamageable damageable)
     {
         damageable.TakeDamage(
-                   rawDMG: data.baseDamage,
-                   penFlat: data.penFlat,
-                   penPer: data.penPer,
+                   rawDMG: wData.baseDamage * uParams.Attack / 100,
+                   penFlat: wData.penFlat,
+                   penPer: wData.penPer,
                    uType: GetComponentInParent<UnitParams>().Type
                );
     }

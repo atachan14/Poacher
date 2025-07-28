@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 11400000, guid: d5369837a5d69bf429504e3ce40e0e0e, type: 2}
+    - target: {fileID: 5237683883478650635, guid: bf174dc56100566468914da348ef9cfd, type: 3}
+      propertyPath: wData
+      value: 
+      objectReference: {fileID: 11400000, guid: d5369837a5d69bf429504e3ce40e0e0e, type: 2}
     - target: {fileID: 9133633691578746801, guid: bf174dc56100566468914da348ef9cfd, type: 3}
       propertyPath: m_Name
       value: SubmachineGun

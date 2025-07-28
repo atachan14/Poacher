@@ -26,7 +26,7 @@ public class OnSpotWeapon : BaseWeapon
 
     IEnumerator DelayedAttack()
     {
-        yield return new WaitForSeconds(data.startTime);  // data‚ÍScriptableObject‚ÌWeaponData‚Æ‚©
+        yield return new WaitForSeconds(wData.startTime);  // data‚ÍScriptableObject‚ÌWeaponData‚Æ‚©
 
         Instantiate(attackSourcePrefab, targetPos, Quaternion.identity,transform);
     }

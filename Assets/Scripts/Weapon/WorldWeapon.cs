@@ -28,13 +28,13 @@ public class WorldWeapon : MonoBehaviour
 
     void ApllyIcon()
     {
-        GetComponent<SpriteRenderer>().sprite = baseWeapon.data.icon;
+        GetComponent<SpriteRenderer>().sprite = baseWeapon.wData.icon;
     }
 
     public void Pick(Transform t)
     {
-        baseWeapon.transform.position = t.position;
-        baseWeapon.transform.SetParent(t);
+        baseWeapon.Pick(t);
+       
         gameObject.SetActive(false);
     }
 }

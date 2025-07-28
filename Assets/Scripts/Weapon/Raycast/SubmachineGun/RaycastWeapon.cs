@@ -17,7 +17,7 @@ public class RaycastWeapon : BaseWeapon
 
         ShowFireEffect(firePos);
 
-        RaycastHit2D hit = Physics2D.Raycast(firePos, dir, data.range, data.hitMask);
+        RaycastHit2D hit = Physics2D.Raycast(firePos, dir, wData.range, wData.hitMask);
         if (hit.collider != null)
         {
             // É_ÉÅÅ[ÉWèàóùÇ∆Ç©
@@ -35,17 +35,17 @@ public class RaycastWeapon : BaseWeapon
 
     void ShowFireEffect(Vector2 firePos)
     {
-        if (data.fireEffect != null)
+        if (wData.fireEffect != null)
         {
 
-            Instantiate(data.fireEffect, firePos, Quaternion.identity);
+            Instantiate(wData.fireEffect, firePos, Quaternion.identity);
         }
     }
 
     void ShowHitEffect(Vector2 hitPos)
     {
-        if (data.hitEffect != null)
-            Instantiate(data.hitEffect, hitPos, Quaternion.identity);
+        if (wData.hitEffect != null)
+            Instantiate(wData.hitEffect, hitPos, Quaternion.identity);
     }
 
 }

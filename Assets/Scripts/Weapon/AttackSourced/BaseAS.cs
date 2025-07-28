@@ -14,10 +14,10 @@ public class BaseAS : MonoBehaviour
     public virtual void Setup(BaseWeapon bw, Vector2 pos)
     {
 
-        lifetime = bw.data.lifetime;
-        Damage = bw.data.baseDamage;
-        PenFlat = bw.data.penFlat;
-        PenPer = bw.data.penPer;
+        lifetime = bw.wData.lifetime;
+        Damage = bw.wData.baseDamage * bw.uParams.Attack / 100;
+        PenFlat = bw.wData.penFlat;
+        PenPer = bw.wData.penPer;
 
         uParams = bw.GetComponentInParent<UnitParams>();
 

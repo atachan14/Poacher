@@ -17,7 +17,7 @@ public class PoacherAI : MonoBehaviour
     {
         uParams = GetComponent<UnitParams>();
         weapon = GetComponentInChildren<BaseWeapon>();
-        attackRange = weapon.data.range;
+        attackRange = weapon.wData.range;
         wallFireRange = attackRange;
         unitLayerMask = LayerMask.GetMask("Unit");
     }
@@ -103,7 +103,7 @@ public class PoacherAI : MonoBehaviour
         {
             weapon.Drop(transform.position);
             weapon = GetComponentInChildren<BaseWeapon>();
-            attackRange = weapon.data.range;
+            attackRange = weapon.wData.range;
             wallFireRange = attackRange;
         }
     }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   maxHP: 2000
-  attack: 100
+  attack: 120
   defense: 100
   penFlat: 0
   penPer: 0

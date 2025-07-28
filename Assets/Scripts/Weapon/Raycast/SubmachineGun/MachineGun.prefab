@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bf8d2cf55be254d91f4b20097f3b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: d03d04ec31560f4428d0c69f12bb56b8, type: 2}
+  wData: {fileID: 11400000, guid: d03d04ec31560f4428d0c69f12bb56b8, type: 2}
+  currentAmmo: 0
 --- !u!1001 &4665501667671737360
 PrefabInstance:
   m_ObjectHideFlags: 0
