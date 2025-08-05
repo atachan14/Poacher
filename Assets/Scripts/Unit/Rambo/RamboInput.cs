@@ -14,12 +14,13 @@ public class RamboInput : MonoBehaviour
     void Update()
     {
         MoveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        AimPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         FirePressed = Input.GetMouseButton(0);
 
         for (int i = 0; i < WeaponSwitchPressed.Length; i++)
             WeaponSwitchPressed[i] = Input.GetKeyDown(KeyCode.Alpha1 + i);
 
         PickPressed = Input.GetKeyDown(KeyCode.E);
-        AimPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
     }
 }

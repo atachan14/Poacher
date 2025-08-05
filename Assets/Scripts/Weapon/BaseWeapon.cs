@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class BaseWeapon : MonoBehaviour
 {
     public WeaponData wData;
-    public UnitParams uParams { get; private set; }
+    public UnitParams uParams { get; set; }
     protected WorldWeapon worldWeapon;
     public float currentAmmo;
     protected float lastFireTime;

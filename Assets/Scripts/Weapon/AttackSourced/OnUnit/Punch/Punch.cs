@@ -5,6 +5,7 @@ public class Punch : OnUnitWeapon
     protected override void Start()
     {
         worldWeapon = null;
+        uParams = GetComponentInParent<UnitParams>();
         currentAmmo = -999;
     }
 
