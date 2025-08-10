@@ -7,7 +7,7 @@ public class PoacherAI : MonoBehaviour
 
     public float searchRadius = 5;
     float attackRange;
-    Vector2 objectivePos = Vector2.zero;
+    public Vector2 objectivePos = Vector2.zero;
 
     LayerMask unitLayerMask;
     Vector2 debugBestPoint;

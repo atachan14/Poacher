@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 250386893841926870}
   - component: {fileID: 7286641917928720473}
   - component: {fileID: 2073382349056213302}
+  - component: {fileID: 86488438167715460}
   m_Layer: 6
   m_Name: Poacher
   m_TagString: Untagged
@@ -194,6 +195,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 807aad8d03936134a864f8acdf90372f, type: 2}
+--- !u!114 &86488438167715460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808384377290339619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d8826ae25fdb44ca2955b9f4a590c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 0502e3e0c944a4f71948552166af7b48, type: 3}
+  - {fileID: 21300000, guid: 9c7af1d0200fc4bbc8276e459fa2d906, type: 3}
+  - {fileID: 21300000, guid: 33cf904ffefc842ddb5ccf1565cd94b3, type: 3}
+  - {fileID: 21300000, guid: b1640c283050b4d23a677c6a445f058c, type: 3}
+  - {fileID: 21300000, guid: dd3db1e5b4263437aa298781bd55d726, type: 3}
+  - {fileID: 21300000, guid: 5d83937eb3ca95047b4e0e43aac5e962, type: 3}
+  - {fileID: 21300000, guid: 6b80cdd1d5ce20c4189553f129f4d175, type: 3}
+  - {fileID: 21300000, guid: 9182e08d6d8be424a98050562de5b053, type: 3}
 --- !u!1001 &6265655736476015008
 PrefabInstance:
   m_ObjectHideFlags: 0

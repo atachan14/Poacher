@@ -1445,7 +1445,7 @@ GameObject:
   - component: {fileID: 687944556}
   - component: {fileID: 687944555}
   m_Layer: 0
-  m_Name: GOManager
+  m_Name: AssetsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2805,6 +2805,7 @@ Transform:
   - {fileID: 269521370}
   - {fileID: 555829158}
   - {fileID: 212622538}
+  - {fileID: 1449398892}
   m_Father: {fileID: 706302733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1208889171 stripped
@@ -3072,7 +3073,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1191582503}
     m_Modifications:
     - target: {fileID: 2973841117492804532, guid: 8ceb219ed327f1948ab186458e7caae9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3092,15 +3093,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973841117492804532, guid: 8ceb219ed327f1948ab186458e7caae9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2973841117492804532, guid: 8ceb219ed327f1948ab186458e7caae9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2973841117492804532, guid: 8ceb219ed327f1948ab186458e7caae9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2973841117492804532, guid: 8ceb219ed327f1948ab186458e7caae9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3123,6 +3124,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ceb219ed327f1948ab186458e7caae9, type: 3}
+--- !u!4 &1449398892 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2973841117492804532, guid: 8ceb219ed327f1948ab186458e7caae9, type: 3}
+  m_PrefabInstance: {fileID: 1449398891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1454037805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3725,6 +3731,7 @@ GameObject:
   - component: {fileID: 1734107268}
   - component: {fileID: 1734107269}
   - component: {fileID: 1734107270}
+  - component: {fileID: 1734107271}
   m_Layer: 6
   m_Name: Rambo
   m_TagString: Untagged
@@ -3961,6 +3968,27 @@ MonoBehaviour:
   reviveDuration: 3
   blinkInterval: 0.2
   blinkAlpha: 0.3
+--- !u!114 &1734107271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734107259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d25e98063888664b940cd1bcd3f438f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 54ce89f1e912746ecb70ddf53bead1f8, type: 3}
+  - {fileID: 21300000, guid: cc7e65fd16d39483aa18d865a68e9451, type: 3}
+  - {fileID: 21300000, guid: 009774248359949e3b9317677c6678da, type: 3}
+  - {fileID: 21300000, guid: b88a78d35a73e4a33bf6788d22e3cb67, type: 3}
+  - {fileID: 21300000, guid: 19370790a791d4fc99ee3830251366f8, type: 3}
+  - {fileID: 21300000, guid: 713f288c6a6fc4514a9403f26e82dc91, type: 3}
+  - {fileID: 21300000, guid: 1223ca7d04e5a4ad08a8d648c4e2a09e, type: 3}
+  - {fileID: 21300000, guid: 727af22e923264f0ca2530a410e2d7ab, type: 3}
 --- !u!4 &1736503971 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2007786527570594888, guid: 863da9d816380d6498df60db5911a8b5, type: 3}
@@ -5248,4 +5276,3 @@ SceneRoots:
   - {fileID: 1909040844}
   - {fileID: 706302733}
   - {fileID: 687944556}
-  - {fileID: 1449398891}
